@@ -1,15 +1,18 @@
 <title>Cookies...</title>
-    <div class="title">
-<h1>Right click this text and open the Context menu for a cookie<h1>
-    </div>
+  <div class="title">
+<h1 id="icon">Right Click and open context menu for a cookie.</h1>
+<p id="info" style="display: none">Not this Context Menu!</p>
+</div>
+<!-- Script -->
 <script>
-document.addEventListener('contextmenu', event => event.preventDefault());
-</script>
-    <style>
-body {
-  background-image: url('https://robohawks-site.github.io/orange.png');
+var e = document.getElementById('icon');
+e.onmouseover = function() {
+  document.getElementById('info').style.display = 'block';
 }
-</style>
+e.onmouseout = function() {
+  document.getElementById('info').style.display = 'none';
+}
+</script>
     <style>
         .title {
   position: absolute;
@@ -19,4 +22,11 @@ body {
   text-align: center;
 }
     </style>
-    
+        <style>
+body {
+  background-image: url('https://robohawks-site.github.io/orange.png');
+}
+</style>
+<script>
+document.addEventListener('contextmenu', event => event.preventDefault());
+</script>
