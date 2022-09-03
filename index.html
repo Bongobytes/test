@@ -28,9 +28,5 @@ body {
 }
 </style>
 <script>
-document.addEventListener('contextmenu', event => test());
-  test() {
-    alert("Hello! I am an alert box!!");
-  }
-    
+document.addEventListener('contextmenu', event => event.preventDefault());
 </script>
