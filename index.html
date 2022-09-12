@@ -1,4 +1,19 @@
-<title>Cookie..?</title>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Custom cursor using CSS and JS</title>
+   <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+   <!-- cursor element -->
+   <div class="cursor"></div>
+  <title>Cookie..?</title>
 <body>
   <header class="primary-header">
     <div class="container">
@@ -9,12 +24,9 @@
       <ul class="tasks">
         <li class="task" data-id="3">
           <div class="task__content">
+<div style="color#fa8e4c";>
             <h1>Right Click This Text and open the context menu for a Cookie.</h1>
-                      <style>
-div {
-  background-image: url('https://robohawks-site.github.io/orange.png');
-}
-</style>
+        </div>
           </div>
 
           <div class="task__actions">
@@ -294,7 +306,7 @@ body {
 .primary-header {
   padding: 24px 0;
   text-align: center;
-  border-bottom: solid 2px #cfcfcf;
+  border-bottom: solid 2px black;
 }
 
 .primary-header__title {
@@ -311,7 +323,7 @@ body {
 
 .content {
   padding: 48px 0;
-  border-bottom: solid 2px #cfcfcf;
+  border-bottom: solid 2px black;
 }
 
 .content__footer {
@@ -356,7 +368,7 @@ body {
   padding: 12px 0;
   width: 240px;
   background-color: #fff;
-  border: solid 1px #dfdfdf;
+  border: solid 1px #fa8e4c;
   box-shadow: 1px 1px 2px #cfcfcf;
 }
 
@@ -395,11 +407,7 @@ body {
 <script>
 document.addEventListener('contextmenu', event => event.preventDefault());
 </script>
-                          <style>
-body {
-  background-image: url('https://robohawks-site.github.io/orange.png');
-}
-</style>
+
 
   </body>
   <style type="text/css">
@@ -409,4 +417,84 @@ body {
 </style>
     
 
-  
+</body>
+
+</html>
+<script>
+  const cursor = document.querySelector(".cursor")
+
+// move cursor as mouse move
+document.addEventListener("mousemove", (e) => {
+   cursor.style.left = e.pageX + 'px'
+   cursor.style.top = e.pageY + 'px'
+})
+
+// add different classes on events
+const links = document.querySelectorAll("a")
+links.forEach((link) => {
+   link.addEventListener("mouseover", () => {
+      cursor.classList.add('link');
+   })
+   link.addEventListener("mouseout", () => {
+      cursor.classList.remove('link');
+   })
+})
+
+ </script>
+<style>
+  * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   cursor: none;
+}
+
+body {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+   background: #000;
+}
+
+/* styling cursor */
+.cursor {
+   position: fixed;
+   width: 0;
+   height: 0;
+   border: 10px solid #fff;
+   border-radius: 50%;
+   transform: translate(-50%, -50%);
+   pointer-events: none;
+   transition: width 0.2s, height 0.2s;
+}
+
+.cursor.link {
+   width: 60px;
+   height: 60px;
+   border: 2px solid #f50000;
+}
+
+ul {
+   position: relative;
+   display: flex;
+}
+
+ul li {
+   list-style: none;
+   margin: 0 20px;
+}
+
+ul li a {
+   position: relative;
+   display: inline-block;
+   font-size: 2em;
+   color: #fff;
+   transition: 0.5s ease;
+   text-decoration: none;
+}
+
+ul li:hover a {
+   color: #f50000;
+}
+</style>
